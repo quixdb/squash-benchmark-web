@@ -750,6 +750,44 @@
 	  </p>
 	</dd>
 
+	<dt id="faq-proprietary-codecs">Will you include proprietary codecs? <a href="#faq-proprietary-codecs"><i class="fa fa-link"></i></a></dt>
+	<dd>
+	  <p>
+	    I am trying to make Squash as friendly as I can towards
+	    proprietary compression codecs, but the fact is that they
+	    significantly complicate things on technical grounds.
+	    First, they are usually executables, not libraries.  That
+	    means that in order for a plugin to work it would have to
+	    do the whole <code>fork()</code>/<code>exec()</code> thing
+	    and use <abbr title="Inter-Process
+	    Communication">IPC</abbr> to communicate. That is going to
+	    put them at a significant performance disadvantage,
+	    especially for small files.
+	  </p>
+
+	  <p>
+	    All the machines in the benchmark are running Linux. That
+	    means that, with the current set of machines, in order to
+	    be included in the benchmark the codec needs to have a
+	    Linux version.  Also, not all the machines are x86/x86_64…
+	    How often do you see closed source compressors for Linux
+	    on ARM?  Not every codec needs to work on every platform,
+	    but you should keep in mind that, without the source code,
+	    it is unlikely every codec will work on every platform the
+	    benchmark is run on, so there would likely be gaps in the
+	    data.
+	  </p>
+
+	  <p>
+	    It is also worth mentioning that the people behind the
+	    Squash project have no plans to write any plugins for
+	    proprietary libraries themselves.  We would be willing to
+	    include them in the benchmark, and even to help test and
+	    maintain open-source plugins for them, but don't wait for
+	    us to write a plugin for a proprietary library.
+	  </p>
+	</dd>
+
 	<dt id="faq-calculation">How are the values calculated? <a href="#faq-calculation"><i class="fa fa-link"></i></a></dt>
 	<dd>
 	  <p>
@@ -921,6 +959,56 @@
 	  </p>
 	</dd>
 
+	<dt id="faq-run-time">How long does it take to run the benchmark? <a href="#faq-run-time"><i class="fa fa-link"></i></a></dt>
+	<dd>
+	  <p>
+	    For each level of each codec, the benchmark will compress
+	    the data repeatedly until 5 seconds has elapsed, then do
+	    the same for decompression.  Therefore, each level
+	    executes for a <em>minimum</em> of 10 seconds.  There are
+	    {{data_points_per_machine|number}} levels and
+	    {{datasets.length|number}} datasets, for a total of
+	    {{(data_points_per_machine*datasets.length*10)|formatDuration}}
+	    minumum, per machine.
+	  </p>
+
+	  <p>
+	    That said, for larger datasets not all codecs will be able
+	    to complete even one iteration in 5 seconds.  Some take
+	    <em>much</em> longer; compressing enwik8 with LZMA at
+	    level 9 on the BeagleBoard-xM, for example, takes almost
+	    11 hours per codec (there are four: lzma, lzma1, lzma2,
+	    and xz) in wall-clock time (largely due to thrashing—CPU
+	    time is more than an order of magnitude less).
+	  </p>
+
+	  <p>
+	    In practice, the fastest machine (peltast) currently takes
+	    about 22 hours, the slowest (beagleboard-xm) just shy of 7
+	    days.
+	  </p>
+	</dd>
+
+	<dt id="faq-additional-build-configurations">Will you add different sets of compiler flags? <a href="#faq-additional-build-configurations"><i class="fa fa-link"></i></a></dt>
+	<dd>
+	  <p>
+	    No.  There are a huge number of different possible
+	    options, which can be combined in a any way, leading to a
+	    combinatorial explosion of the number of times the
+	    benchmark would have to be run.  Given
+	    the <a href="#faq-run-time">time it takes to run the
+	    benchmark</a>, this is simply not feasible.
+	  </p>
+
+	  <p>
+	    If you are curious about specific flags you should run the
+	    benchmark yourself.  Or, even better, create your own
+	    benchmark with the codec in your software with your data.
+	    The Squash Compression Benchmark is not designed to be The
+	    One True Answer, it is a guide.
+	  </p>
+	</dd>
+
 	<dt id="faq-browser-compatibility">This doesn't work in my browser. <a href="#faq-browser-compatibility"><i class="fa fa-link"></i></a></dt>
 	<dd>
 	  <p>
@@ -991,7 +1079,7 @@
 
 	  <p>
 	    Additionally, you can grab a copy from
-	    the <a href="https://github.com/quixdb/squash-benchmark-web/data">the
+	    the <a href="https://github.com/quixdb/squash-benchmark-web/tree/master/data">the
 	    data folder</a> of
 	    the <a href="https://github.com/quixdb/squash-benchmark-web/">squash-benchmark-web
 	    git repository</a>.
