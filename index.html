@@ -266,8 +266,8 @@
 	  <p>
 	    The Squash benchmark is currently run on many of the
 	    machines I have access to—this happens to be fairly recent
-	    Intel <abbr>CPU</abbr>s, and a mix of
-	    ARM <abbr title="Single Board Computer">SBC</abbr>s.
+	    Intel <abbr title="Central Processing Unit">CPU</abbr>s, and a mix of
+	    Arm <abbr title="Single Board Computer">SBC</abbr>s.
 	    There
 	    is <a href="#faq-additional-machine">an entry in the
 	    <abbr title="Frequently Asked Questions">FAQ</abbr></a>
@@ -771,7 +771,7 @@
 	    be included in the benchmark the codec needs to have a
 	    Linux version.  Also, not all the machines are x86/x86_64…
 	    How often do you see closed source compressors for Linux
-	    on ARM?  Not every codec needs to work on every platform,
+	    on Arm?  Not every codec needs to work on every platform,
 	    but you should keep in mind that, without the source code,
 	    it is unlikely every codec will work on every platform the
 	    benchmark is run on, so there would likely be gaps in the
@@ -832,10 +832,10 @@
 	  </p>
 	</dd>
 
-	<dt id="faq-wall-clock-or-cpu">Is time CPU time or wall-clock? <a href="#faq-wall-clock-or-cpu"><i class="fa fa-link"></i></a></dt>
+	<dt id="faq-wall-clock-or-cpu">Is time <abbr title="Central Processing Unit">CPU</abbr> time or wall-clock? <a href="#faq-wall-clock-or-cpu"><i class="fa fa-link"></i></a></dt>
 	<dd>
 	  <p>
-	    CPU time.  Wall-clock data is actually captured but not
+	    <abbr title="Central Processing Unit">CPU</abbr> time.  Wall-clock data is actually captured but not
 	    presented.  I'm willing to consider pull requests if you
 	    can find a good way to display it, as well as a good
 	    reason.
@@ -890,7 +890,7 @@
 	  </p>
 	</dd>
 
-	<dt id="faq-additional-features">Can you add a feature (chart, table, <i>etc.</i>) to the bencmark? <a href="#faq-additional-features"><i class="fa fa-link"></i></a></dt>
+	<dt id="faq-additional-features">Can you add a feature (chart, table, <i>etc.</i>) to the benchmark? <a href="#faq-additional-features"><i class="fa fa-link"></i></a></dt>
 	<dd>
 	  <p>
 	    No promises, but I am looking for ideas—I'm certainly
@@ -916,7 +916,7 @@
 
 	  <p>
 	    If the issue is performance on an architecture you don't
-	    have access to (e.g., ARM), I'm willing to provide SSH
+	    have access to (e.g., Arm), I'm willing to provide SSH
 	    access to most of the machines included in this benchmark
 	    to people working on open source libraries.  If you would
 	    like access to one to help you optimize your code just let
@@ -924,7 +924,7 @@
 	  </p>
 	</dd>
 
-	<dt id="faq-additional-machine">Can you add <var>«insert machine, CPU, architecture, <abbr title="Operating System">OS</abbr>, etc.»</var>? <a href="#faq-additional-machine"><i class="fa fa-link"></i></a></dt>
+	<dt id="faq-additional-machine">Can you add <var>«insert machine, <abbr title="Central Processing Unit">CPU</abbr>, architecture, <abbr title="Operating System">OS</abbr>, etc.»</var>? <a href="#faq-additional-machine"><i class="fa fa-link"></i></a></dt>
 	<dd>
 	  <p>
 	    Only if I have, or at least have access to, a machine
@@ -933,9 +933,11 @@
 
 	  <p>
 	    In general I include what I have available.  That tends to
-	    be some newish Intel CPUs, some older Intel CPUs that
+	    be some newish Intel <abbr title="Central Processing Unit">CPU</abbr>s,
+	    some older Intel <abbr title="Central Processing Unit">CPU</abbr>s that
 	    haven't yet found their way to the electronics recycler,
-	    and some ARM SBCs.  If you would like to donate other
+	    and some Arm <abbr title="Single Board Computer">SBC</abbr>s.
+	    If you would like to donate other
 	    hardware I'm willing to add it to the benchmark.
 	  </p>
 	</dd>
@@ -978,7 +980,7 @@
 	    <em>much</em> longer; compressing enwik8 with LZMA at
 	    level 9 on the BeagleBoard-xM, for example, takes almost
 	    11 hours per codec (there are four: lzma, lzma1, lzma2,
-	    and xz) in wall-clock time (largely due to thrashing—CPU
+	    and xz) in wall-clock time (largely due to thrashing—<abbr title="Central Processing Unit">CPU</abbr>
 	    time is more than an order of magnitude less).
 	  </p>
 
@@ -1162,7 +1164,7 @@
 	</p>
 
 	<p>
-	  For bug reports an feature requests, please use the relevant issue tracker:
+	  For bug reports and feature requests, please use the relevant issue tracker:
 	</p>
 
 	<dl style="margin-left: 2em">
